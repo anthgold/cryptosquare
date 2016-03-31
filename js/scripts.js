@@ -3,11 +3,13 @@ $(document).ready(function() {
   $("form#text-entry").submit(function(event) {
     event.preventDefault();
     var userText = $("input.userText").val();
-    var textArray = userText.split();
+    var textArray = userText.split('');
     var textLength = parseInt(userText.length);
     var textSqrt = Math.sqrt(textLength);
     var columns = 0;
-    var outputText = [];
+    console.log(typeof textArray);
+    console.log(textArray);
+    var outputText = new Array;
     // var i;
 
     //
@@ -17,19 +19,22 @@ $(document).ready(function() {
       columns = i;
     }
 
-    //loop for multiple scans of array
-    for (i = 0; i < columns; i++) {
-      //loop that looks
-      for (var c = 0; c < columns; c += columns) {
-        outputText = outputText.push(textArray[c]);
+    //selects starting # for loop
+    for (var i = 0; i < columns; i++) {
+      //select every multiple of column# and pushes to output array
+      for (var c = i; c < textLength; c += (columns)) {
+        outputText.push(textArray[c]);
       }
     }
+
+    console.log(outputText);
+
 
 
 
 // User Interface Logic
 
-    alert('outputText');
+    alert(outputText);
 
     // console.log(arabicNumber);
     //
