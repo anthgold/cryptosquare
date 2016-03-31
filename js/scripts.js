@@ -2,19 +2,16 @@
 $(document).ready(function() {
   $("form#text-entry").submit(function(event) {
     event.preventDefault();
-    var userText = $("input.userText").val();
+    var userText = $("input.userText").val().replace(/\s/g, '');
     var textArray = userText.split('');
     var textLength = parseInt(userText.length);
     var textSqrt = Math.sqrt(textLength);
     var columns = 0;
-    console.log(typeof textArray);
-    console.log(textArray);
     var outputText = new Array;
-    // var i;
 
-    //
+    // to-do: insert loop for removing spaces and punctuation
 
-    //find # columns
+    // find # columns
     for (var i = 1; i <= textSqrt; i ++) {
       columns = i;
     }
@@ -27,13 +24,18 @@ $(document).ready(function() {
       }
     }
 
-    console.log(outputText);
+    //adds space every 5 letters
+    for (var i = 5; i < textLength; i += 6) {
+      outputText.splice(i, 0, " ");
+    }
+
 
 
 
 
 // User Interface Logic
 
+    //convert to text next build!
     alert(outputText);
 
     // console.log(arabicNumber);
